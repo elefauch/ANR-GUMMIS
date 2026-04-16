@@ -277,6 +277,43 @@
       nav { padding: 0 1.2rem; }
       .hero, .about, .coordinator, .section-divider, footer { padding-left: 1.2rem; padding-right: 1.2rem; }
     }
+
+
+    /* ── PARTNERS / LOGOS ── */
+.partners {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 2.5rem 3rem;
+}
+
+.partners-heading {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.logos-row {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.logos-row img {
+  height: 42px;   /* ← taille contrôlée ici */
+  width: auto;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+.logos-row img:hover {
+  opacity: 1;
+}
+
+    
   </style>
 </head>
 <body>
