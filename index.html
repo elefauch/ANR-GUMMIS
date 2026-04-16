@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ANR GUMMIS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f2eb;
+      --ink: #1a1814;
+      --accent: #c0392b;
+      --accent2: #2c5f8a;
+      --muted: #7a7570;
+      --rule: #d4cfc5;
+      --card: #eeeae0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 58px;
+    }
+    .nav-brand {
+      font-family: 'DM Mono', monospace;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-brand span { color: var(--accent); }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      transition: color .2s;
+    }
+    nav ul a:hover, nav ul a.active { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 2.5rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 4rem;
+      align-items: start;
+    }
+    .hero-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.4rem;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--accent2);
+    }
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+    .hero-desc {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--ink);
+      font-weight: 300;
+    }
+
+    .hero-meta {
+      padding-top: 0.5rem;
+    }
+    .meta-block {
+      border-left: 2px solid var(--rule);
+      padding-left: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .meta-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+    .meta-value {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .meta-value a {
+      color: var(--accent2);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: border-color .2s;
+    }
+    .meta-value a:hover { border-color: var(--accent2); }
+    .meta-sub {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-top: 0.15rem;
+    }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    /* ── ABOUT SECTION ── */
+    .about {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2.5rem 4rem;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .about-heading {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 0.4rem;
+      position: sticky;
+      top: 80px;
+    }
+    .about-body p {
+      font-weight: 300;
+      margin-bottom: 1.1rem;
+      font-size: 1rem;
+    }
+    .about-body p:last-child { margin-bottom: 0; }
+
+    /* ── COORDINATOR ── */
+    .coordinator {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 4rem;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .coord-heading {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 0.4rem;
+      position: sticky;
+      top: 80px;
+    }
+    .coord-card {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      padding: 1.6rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+      max-width: 480px;
+    }
+    .coord-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+    .coord-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.25rem;
+    }
+    .coord-affil {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 2rem 2.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color .2s;
+    }
+    footer a:hover { color: var(--ink); }
+
+    /* ── ANR badge ── */
+    .anr-ref {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      background: var(--card);
+      border: 1px solid var(--rule);
+      padding: 0.3em 0.8em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+    }
+    .anr-ref:hover { border-color: var(--accent2); color: var(--accent2); }
+
+    @media (max-width: 700px) {
+      .hero { grid-template-columns: 1fr; gap: 2rem; }
+      .about, .coordinator { grid-template-columns: 1fr; gap: 1rem; }
+      .about-heading, .coord-heading { position: static; }
+      nav { padding: 0 1.2rem; }
+      .hero, .about, .coordinator, .section-divider, footer { padding-left: 1.2rem; padding-right: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html">ANR <span>GUMMIS</span></a>
+  <ul>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="publications.html">Publications</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section class="hero">
+    <div class="hero-main">
+      <p class="hero-label">ANR-25-CE48-5096 &nbsp;·&nbsp; 2026–2030</p>
+      <h1><em>G</em>uarded <em>U</em>sage of <em>M</em>emory in the <br><em>M</em>odel-checking of <br><em>I</em>ncomplete <em>S</em>ystems</h1>
+      <p class="hero-subtitle">Limited memory use in the analysis of incomplete models</p>
+      <p class="hero-desc">
+        GUMMIS investigates the boundary between expressiveness and tractability in formal verification,
+        with a focus on finite-memory constraints as a key lever for making model-checking decidable
+        on parameterised and partially-specified systems.
+      </p>
+    </div>
+    <aside class="hero-meta">
+      <div class="meta-block">
+        <div class="meta-label">Funding</div>
+        <div class="meta-value">ANR — CE48</div>
+        <div class="meta-sub">178 000 €</div>
+      </div>
+      <div class="meta-block">
+        <div class="meta-label">Duration</div>
+        <div class="meta-value">48 months</div>
+        <div class="meta-sub">Starting January 2026</div>
+      </div>
+      <div class="meta-block">
+        <div class="meta-label">ANR page</div>
+        <div class="meta-value">
+          <a href="https://anr.fr/Projet-ANR-25-CE48-5096" target="_blank">ANR-25-CE48-5096 ↗</a>
+        </div>
+      </div>
+      <div class="meta-block">
+        <div class="meta-label">Publications on HAL</div>
+        <div class="meta-value">
+          <a href="https://anr.hal.science/search/index/?q=*&anrProjectReference_s=ANR-25-CE48-5096" target="_blank">HAL-ANR portal ↗</a>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <section class="about">
+    <div class="about-heading">About</div>
+    <div class="about-body">
+      <p>
+        Model-checking is a cornerstone of formal verification: a real system is first encoded
+        as a formal model, then checked against a specification. The expressiveness of the model
+        class must be rich enough to capture critical properties, yet simple enough to keep
+        analysis tractable.
+      </p>
+      <p>
+        Many extensions — timed constraints, stochastic behaviour, partial observability,
+        parameters, non-determinism — increase the complexity of analysis, often pushing it
+        into undecidability. Classical responses restrict model parameters (number of clocks,
+        dimensions…), but difficulties can equally stem from unrealistic baseline assumptions.
+        Timed automata, for instance, can execute infinitely many actions in finite time,
+        yielding theoretically correct but practically meaningless results.
+      </p>
+      <p>
+        GUMMIS takes a different angle: instead of restricting the model structure alone, it
+        introduces <em>finite-memory hypotheses</em> that reflect actual system limitations.
+        The goal is to find the right balance between modelling power and analytical tractability
+        by grounding the formalism in realistic resource constraints.
+      </p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <section class="coordinator">
+    <div class="coord-heading">Coordinator</div>
+    <div>
+      <div class="coord-card">
+        <div class="coord-avatar">EL</div>
+        <div>
+          <div class="coord-name">Engel Lefaucheux</div>
+          <div class="coord-affil">INRIA</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>GUMMIS (ANR-25-CE48-5096) © 2026</span>
+  <a href="https://anr.fr/Projet-ANR-25-CE48-5096" target="_blank">ANR project page ↗</a>
+</footer>
+
+</body>
+</html>

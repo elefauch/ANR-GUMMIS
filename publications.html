@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications — ANR GUMMIS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f2eb;
+      --ink: #1a1814;
+      --accent: #c0392b;
+      --accent2: #2c5f8a;
+      --muted: #7a7570;
+      --rule: #d4cfc5;
+      --card: #eeeae0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 58px;
+    }
+    .nav-brand {
+      font-family: 'DM Mono', monospace;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-brand span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      transition: color .2s;
+    }
+    nav ul a:hover, nav ul a.active { color: var(--accent); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem 2.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .page-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.6rem;
+      line-height: 1.1;
+    }
+
+    /* ── PUBLICATIONS LIST ── */
+    .publications {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2.5rem 5rem;
+    }
+
+    /* Year group */
+    .year-group { margin-bottom: 3.5rem; }
+    .year-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* Single publication card */
+    .pub-item {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 1.2rem;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: start;
+    }
+    .pub-item:last-child { border-bottom: none; }
+
+    .pub-type {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--accent2);
+      padding: 0.25em 0.5em;
+      display: inline-block;
+      line-height: 1.6;
+      margin-top: 0.25rem;
+    }
+    .pub-type.workshop { background: var(--muted); }
+    .pub-type.preprint { background: #888; }
+
+    .pub-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.08rem;
+      line-height: 1.35;
+      margin-bottom: 0.35rem;
+    }
+    .pub-title a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s;
+    }
+    .pub-title a:hover { border-color: var(--accent2); }
+
+    .pub-authors {
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 0.25rem;
+    }
+    .pub-venue {
+      font-size: 0.85rem;
+      color: var(--ink);
+      font-style: italic;
+      font-weight: 300;
+    }
+    .pub-links {
+      margin-top: 0.6rem;
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+    .pub-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--accent2);
+      border: 1px solid var(--rule);
+      padding: 0.2em 0.6em;
+      transition: border-color .2s, background .2s;
+    }
+    .pub-link:hover {
+      border-color: var(--accent2);
+      background: var(--card);
+    }
+
+    /* Empty state */
+    .empty-state {
+      padding: 3rem 0;
+      color: var(--muted);
+      font-style: italic;
+      font-weight: 300;
+    }
+    .hal-note {
+      margin-top: 2rem;
+      padding: 1.2rem 1.6rem;
+      background: var(--card);
+      border-left: 3px solid var(--accent2);
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .hal-note a {
+      color: var(--accent2);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+    }
+    .hal-note a:hover { border-color: var(--accent2); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 2rem 2.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color .2s;
+    }
+    footer a:hover { color: var(--ink); }
+
+    @media (max-width: 700px) {
+      nav { padding: 0 1.2rem; }
+      .page-header, .publications, footer { padding-left: 1.2rem; padding-right: 1.2rem; }
+      .pub-item { grid-template-columns: 1fr; gap: 0.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html">ANR <span>GUMMIS</span></a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="publications.html" class="active">Publications</a></li>
+  </ul>
+</nav>
+
+<main>
+  <header class="page-header">
+    <p class="page-label">Research output</p>
+    <h1>Publications</h1>
+  </header>
+
+  <section class="publications">
+
+    <!-- ═══════════════════════════════════════════════
+         ADD YOUR PUBLICATIONS BELOW.
+         Copy a .pub-item block for each new paper.
+         Change pub-type class to: (none) = conference
+                                   workshop
+                                   preprint
+    ════════════════════════════════════════════════ -->
+
+    <div class="year-group">
+      <div class="year-label">2026</div>
+
+      <!-- EXAMPLE — delete or replace with real papers -->
+      <div class="pub-item">
+        <span class="pub-type">Conf.</span>
+        <div>
+          <div class="pub-title">
+            <a href="#">Finite-Memory Restrictions in Parameterised Timed Automata</a>
+          </div>
+          <div class="pub-authors">Engel Lefaucheux</div>
+          <div class="pub-venue">Example Conference on Formal Methods (ECFM 2026)</div>
+          <div class="pub-links">
+            <a class="pub-link" href="#">PDF ↗</a>
+            <a class="pub-link" href="#">HAL ↗</a>
+          </div>
+        </div>
+      </div>
+      <!-- /EXAMPLE -->
+
+    </div>
+
+    <!-- Add more year groups as needed:
+    <div class="year-group">
+      <div class="year-label">2027</div>
+      ...
+    </div>
+    -->
+
+    <div class="hal-note">
+      All publications are also indexed on the
+      <a href="https://anr.hal.science/search/index/?q=*&anrProjectReference_s=ANR-25-CE48-5096" target="_blank">HAL-ANR portal for ANR-25-CE48-5096 ↗</a>.
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <span>GUMMIS (ANR-25-CE48-5096) © 2026</span>
+  <a href="https://anr.fr/Projet-ANR-25-CE48-5096" target="_blank">ANR project page ↗</a>
+</footer>
+
+</body>
+</html>
