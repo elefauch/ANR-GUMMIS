@@ -17,9 +17,9 @@
       --rule: #d4cfc5;
       --card: #eeeae0;
     }
-
+ 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--bg);
@@ -27,7 +27,7 @@
       font-size: 17px;
       line-height: 1.65;
     }
-
+ 
     /* ── NAV ── */
     nav {
       position: sticky;
@@ -62,7 +62,7 @@
       transition: color .2s;
     }
     nav ul a:hover, nav ul a.active { color: var(--accent); }
-
+ 
     /* ── PAGE HEADER ── */
     .page-header {
       max-width: 900px;
@@ -83,14 +83,14 @@
       font-size: 2.6rem;
       line-height: 1.1;
     }
-
+ 
     /* ── PUBLICATIONS LIST ── */
     .publications {
       max-width: 900px;
       margin: 0 auto;
       padding: 3rem 2.5rem 5rem;
     }
-
+ 
     /* Year group */
     .year-group { margin-bottom: 3.5rem; }
     .year-label {
@@ -103,7 +103,7 @@
       padding-bottom: 0.6rem;
       border-bottom: 1px solid var(--rule);
     }
-
+ 
     /* Single publication card */
     .pub-item {
       display: grid;
@@ -114,7 +114,7 @@
       align-items: start;
     }
     .pub-item:last-child { border-bottom: none; }
-
+ 
     .pub-type {
       font-family: 'DM Mono', monospace;
       font-size: 0.62rem;
@@ -129,7 +129,7 @@
     }
     .pub-type.workshop { background: var(--muted); }
     .pub-type.preprint { background: #888; }
-
+ 
     .pub-title {
       font-family: 'DM Serif Display', serif;
       font-size: 1.08rem;
@@ -143,7 +143,7 @@
       transition: border-color .2s;
     }
     .pub-title a:hover { border-color: var(--accent2); }
-
+ 
     .pub-authors {
       font-size: 0.88rem;
       color: var(--muted);
@@ -177,7 +177,7 @@
       border-color: var(--accent2);
       background: var(--card);
     }
-
+ 
     /* Empty state */
     .empty-state {
       padding: 3rem 0;
@@ -199,7 +199,7 @@
       border-bottom: 1px solid var(--rule);
     }
     .hal-note a:hover { border-color: var(--accent2); }
-
+ 
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--rule);
@@ -221,7 +221,7 @@
       transition: color .2s;
     }
     footer a:hover { color: var(--ink); }
-
+ 
     @media (max-width: 700px) {
       nav { padding: 0 1.2rem; }
       .page-header, .publications, footer { padding-left: 1.2rem; padding-right: 1.2rem; }
@@ -230,7 +230,7 @@
   </style>
 </head>
 <body>
-
+ 
 <nav>
   <a class="nav-brand" href="index.html">ANR <span>GUMMIS</span></a>
   <ul>
@@ -238,15 +238,15 @@
     <li><a href="publications.html" class="active">Publications</a></li>
   </ul>
 </nav>
-
+ 
 <main>
   <header class="page-header">
     <p class="page-label">Research output</p>
     <h1>Publications</h1>
   </header>
-
+ 
   <section class="publications">
-
+ 
     <!-- ═══════════════════════════════════════════════
          ADD YOUR PUBLICATIONS BELOW.
          Copy a .pub-item block for each new paper.
@@ -254,48 +254,50 @@
                                    workshop
                                    preprint
     ════════════════════════════════════════════════ -->
-
+ 
     <div class="year-group">
       <div class="year-label">2026</div>
-
-      <!-- EXAMPLE — delete or replace with real papers -->
+ 
       <div class="pub-item">
         <span class="pub-type">Conf.</span>
         <div>
           <div class="pub-title">
-            <a href="#">Finite-Memory Restrictions in Parameterised Timed Automata</a>
+            <a href="https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CSL.2026.31" target="_blank">
+              Parametric Disjunctive Timed Networks
+            </a>
           </div>
-          <div class="pub-authors">Engel Lefaucheux</div>
-          <div class="pub-venue">Example Conference on Formal Methods (ECFM 2026)</div>
+          <div class="pub-authors">Étienne André, Swen Jacobs, Engel Lefaucheux</div>
+          <div class="pub-venue">34th EACSL Annual Conference on Computer Science Logic (CSL 2026) — LIPIcs, Vol. 363, pp. 31:1–31:24</div>
           <div class="pub-links">
-            <a class="pub-link" href="#">PDF ↗</a>
-            <a class="pub-link" href="#">HAL ↗</a>
+            <a class="pub-link" href="https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/LIPIcs.CSL.2026.31/LIPIcs.CSL.2026.31.pdf" target="_blank">PDF ↗</a>
+            <a class="pub-link" href="https://doi.org/10.4230/LIPIcs.CSL.2026.31" target="_blank">DOI ↗</a>
+            <a class="pub-link" href="https://doi.org/10.48550/arXiv.2512.04991" target="_blank">arXiv ↗</a>
           </div>
         </div>
       </div>
-      <!-- /EXAMPLE -->
-
+ 
     </div>
-
+ 
+ 
     <!-- Add more year groups as needed:
     <div class="year-group">
       <div class="year-label">2027</div>
       ...
     </div>
     -->
-
+ 
     <div class="hal-note">
       All publications are also indexed on the
       <a href="https://anr.hal.science/search/index/?q=*&anrProjectReference_s=ANR-25-CE48-5096" target="_blank">HAL-ANR portal for ANR-25-CE48-5096 ↗</a>.
     </div>
-
+ 
   </section>
 </main>
-
+ 
 <footer>
   <span>GUMMIS (ANR-25-CE48-5096) © 2026</span>
   <a href="https://anr.fr/Projet-ANR-25-CE48-5096" target="_blank">ANR project page ↗</a>
 </footer>
-
+ 
 </body>
 </html>
